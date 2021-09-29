@@ -13,8 +13,8 @@ const Navbar = ({ icon, title }) => {
       </h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <Link to="/">ホーム</Link>
+          <Link to="/about">詳細</Link>
         </li>
       </ul>
     </nav>
