@@ -19,6 +19,8 @@ import User from "./components/users/User";
 
 library.add(fab, faSpinner, faCheck, faTimesCircle, faInfoCircle);
 
+const token = process.env.REACT_APP_GITHUB_TOKEN
+
 class App extends Component {
   state = {
     users: [],
@@ -34,7 +36,7 @@ class App extends Component {
       `https://api.github.com/search/users?q=${text}`,
       {
         headers: {
-          Authorization: process.env.REACT_APP_GITHUB_TOKEN,
+          Authorization: token,
         },
       }
     );
@@ -45,7 +47,7 @@ class App extends Component {
     this.setState({ loading: true });
     const res = await axios.get(`https://api.github.com/users/${username}`, {
       headers: {
-        Authorization: process.env.REACT_APP_GITHUB_TOKEN,
+        Authorization: token,
       },
     });
     this.setState({ user: res.data, loading: false });
@@ -57,7 +59,7 @@ class App extends Component {
       `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc`,
       {
         headers: {
-          Authorization: process.env.REACT_APP_GITHUB_TOKEN,
+          Authorization: token,
         },
       }
     );
